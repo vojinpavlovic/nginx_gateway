@@ -21,7 +21,7 @@ apt-get upgrade && apt-get install nginx -y
 
 ### Session managment for protected routes
 With Vasa Knjiga API Gateway, we can do session check with internal route /auth/required.
-Your /auth/required endpoint is provided by your web server (nodejs), or you can use [Vasa Knjiga Auth Server](https://github.com/vojinpavlovic/vasaknjiga_auth)
+Your /auth/required endpoint is provided by your web server, or you can use [Vasa Knjiga Auth Server](https://github.com/vojinpavlovic/vasaknjiga_auth)
 In nginx, it is a internal location that acts as a subrequest when accessing some private resource.
 As it acts as subrequest, it will pass to resource server if your auth web server returns 2xx http status, and return 4xx http status code if session is not valid.
 I do recommend that you use 403 http code (forbidden), as it is already defined in errors.conf and will return JSON client friendly error.
@@ -44,7 +44,7 @@ If you want to know what rate limiting levels do, check [limit_req.conf](https:/
 
 Note: Zone is limited to 10mb, and 16.000 ip addresses is 1mb, you can have maximum 160.000 ip addresses in one zone.
 
-So, in your location we would need to add rate limiting. We would need to add limit_req zone=[your-rate-limit-zone];
+So, in your location we would need to add rate limiting. We would need to add limit_req zone=[your-rate-limit-zone], or use already defined zones from one to eight;
 
 ```
 location /some/location/ {
