@@ -49,7 +49,7 @@ So, in your location we would need to add rate limiting. We would need to add li
 
 ```
 location /some/location/ {
-	limit_req zone=three;
+  limit_req zone=three;
   proxy_pass http://some-location/;
   # ... rest
 }
