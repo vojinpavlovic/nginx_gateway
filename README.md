@@ -71,6 +71,7 @@ location /some/location/ {
 ```
 
 ### TO-DO
-- [ ] Load Balancing services with Docker Swarm
-- [ ] Micro Caching
+- [ ] Microcaching
 - [ ] SSL Termination
+- [ ] Dockerize
+- [ ] Load Balancing services with Docker Swarm
