@@ -61,6 +61,8 @@ For debugging purpose, finding malicious requests, DoS and DDoS and monitoring, 
 
 You don't have to create file in /var/log/nginx, nginx will do it for yourself. What you need to is actually define access/error log path and file.
 
+I do use default formatting. You can do your own formatting with regex or compression.
+
 ```
 location /some/location/ {
   access_log /var/log/nginx/some.location.access.log;
