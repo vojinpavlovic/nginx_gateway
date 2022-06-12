@@ -39,7 +39,7 @@ location /some/private/route/ {
 
 ### Rate limiting specific location
 
-For rate limiting, we have eight levels. One is most non aggressive, and eight is most aggresive. You can define your rate limiting strategy. For more information you can check [nginx rate limiting docs](https://docs.nginx.com/nginx/admin-guide/security-controls/controlling-access-proxied-http/).
+For rate limiting, we have eight levels. One is most non aggressive, and three is most aggresive. You can define your rate limiting strategy. For more information you can check [nginx rate limiting docs](https://docs.nginx.com/nginx/admin-guide/security-controls/controlling-access-proxied-http/).
 If you want to know what rate limiting levels do, check [limit_req.conf](https://github.com/vojinpavlovic/vasaknjiga_gateway/blob/main/limit_req.conf).
 
 Note: Zone is limited to 10mb, and 16.000 ip addresses is 1mb, you can have maximum 160.000 ip addresses in one zone.
@@ -48,7 +48,7 @@ So, in your location we would need to add rate limiting. We would need to add li
 
 ```
 location /some/location/ {
-  limit_req zone=three;
+  limit_req zone=two;
   proxy_pass http://some-location/;
   # ... rest
 }
