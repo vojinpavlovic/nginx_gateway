@@ -16,9 +16,6 @@ apt-get upgrade && apt-get install nginx -y
   - Rate Limiting
 - Request routing
 - Access & Error logs
-- SSL Termination (soon)
-- Load Balancing (soon)
-- Micro Caching (soon)
 
 ## ✍️ Examples
 
@@ -72,3 +69,8 @@ location /some/location/ {
   proxy_pass http://some-location/;
 }
 ```
+
+### TO-DO
+- [ ] Load Balancing services with Docker Swarm
+- [ ] Micro Caching
+- [ ] SSL Termination
