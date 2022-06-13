@@ -17,6 +17,7 @@ apt-get upgrade && apt-get install nginx -y
 - Request routing
 - Access & Error logs
 - Client friendly error responses
+- Timeout if service hangs
 
 ## ✍️ Examples
 
