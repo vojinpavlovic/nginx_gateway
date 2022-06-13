@@ -16,6 +16,7 @@ apt-get upgrade && apt-get install nginx -y
   - Rate Limiting
 - Request routing
 - Access & Error logs
+- Client friendly error responses
 
 ## ✍️ Examples
 
@@ -69,6 +70,15 @@ location /some/location/ {
   proxy_pass http://some-location/;
 }
 ```
+
+### Error responses
+In your web app, for some cases you need to repeat some error responses, such as bad inputs if inputs were not provided. So with such case we end up with repetative error responses. With nginx error responses, you can describe what response you want to send with JSON client friendly format.
+
+```
+error_page 404 = @404;
+location @404 { return 404 '{"success":false, "msg":"not-found"}'; }
+```
+In your web app, there is no need to return message with response, instead you can return (node.js express example) res.status(400).end(), and nginx will handle your response.
 
 ### TO-DO
 - [ ] Microcaching
