@@ -1,5 +1,5 @@
-# 📚 Vasa Knjiga API Gateway
-Vasa Knjiga API Gateway, built in [nginx](https://nginx.com/). It's main purpose is for routing, logging and protecting private routes aswell rate limiting. It is a entry point for client application.
+# 📚 Nginx API Gateway
+Nginx API Gateway, built in [nginx](https://nginx.com/). It's main purpose is for routing, logging and protecting private routes aswell rate limiting. It is a entry point for client application.
 
 ## 📋 Prerequisites
 [nginx](https://nginx.com/)
@@ -21,8 +21,8 @@ apt-get upgrade && apt-get install nginx -y
 ## ✍️ Examples
 
 ### Session managment for protected routes
-With Vasa Knjiga API Gateway, we can do session check with internal route /auth/required.
-Your /auth/required endpoint is provided by your web server, or you can use [Vasa Knjiga Auth Server](https://github.com/vojinpavlovic/vasaknjiga_auth)
+With nginx, we can do session check with internal route /auth/required.
+Your /auth/required endpoint is provided by your web server, or you can use [Auth Nodejs Server](https://github.com/vojinpavlovic/auth)
 In nginx, it is a internal location that acts as a subrequest when accessing some private resource.
 As it acts as subrequest, it will pass to resource server if your auth web server returns 2xx http status, and return 4xx http status code if session is not valid.
 I do recommend that you use 403 http code (forbidden), as it is already defined in errors.conf and will return JSON client friendly error.
@@ -57,7 +57,7 @@ location /some/location/ {
 
 ### Access and error logs
 
-For debugging purpose, finding malicious requests, DoS and DDoS and monitoring, every web server would like to have some sort of logging. Vasa Knjiga API Gateway has access log for OK requests and error log for BAD requests. For more information about logging and it's formatting you can check [nginx logging](https://docs.nginx.com/nginx/admin-guide/monitoring/logging/).
+For debugging purpose, finding malicious requests, DoS and DDoS and monitoring, every web server would like to have some sort of logging. Nginx has access log for OK requests and error log for BAD requests. For more information about logging and it's formatting you can check [nginx logging](https://docs.nginx.com/nginx/admin-guide/monitoring/logging/).
 
 You don't have to create file in /var/log/nginx, nginx will do it for yourself. What you need to is actually define access/error log path and file.
 
